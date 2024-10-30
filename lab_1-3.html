@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <script>
+            let arr = [5, 25, 13, 8, 45, 6, 11] 
+            function showMax() {
+                let a = arr
+                var temp = 0;
+                for (let i=0; i < a.length; i++){
+                    if (a[i] > temp){
+                        temp = a[i];
+                    }
+                }
+                document.getElementById('result').innerText = temp.toString();
+            }
+            function showMin() {
+                let a = arr
+                var temp = 1000;
+                for (let i=0; i < a.length; i++){
+                    if (a[i] < temp){
+                        temp = a[i];
+                    }
+                }
+                document.getElementById('result').innerText = temp.toString();
+            }
+            function sortMinToMax() {
+                let a = arr
+                let minIndex = 0;
+                for (let i = 0; i < a.length - 1; i++){
+                    let minIndex = i;
+                    for (let j = i + 1; j < a.length; j++){
+                        if (a[j] < a[minIndex]){
+                            minIndex = j;
+                            
+                        }
+                    }
+                    if (minIndex !== i){
+                        let temp = a[i]
+                        a[i] = a[minIndex]
+                        a[minIndex] = temp
+                    }
+                }
+                document.getElementById('result').innerText = a.toString();
+            }
+            function sortMaxToMin() {
+                let a = arr
+                for (let i = 0; i < a.length - 1; i++){
+                    let maxIndex = i;
+                    for (let j = i + 1; j < a.length; j++){
+                        if (a[j] > a[maxIndex]){
+                            maxIndex = j; 
+                        }
+                    }
+                    if (maxIndex !== i){
+                        let temp = a[i]
+                        a[i] = a[maxIndex]
+                        a[maxIndex] = temp
+                    }
+                }
+                document.getElementById('result').innerText = a.toString();
+            }
+            function clearAnswer() {
+                document.getElementById('result').innerText = "";
+            }
+        </script>
+    </header>
+    <body style="background-color:rgb(171, 231, 237)">
+        <div style="width: device-width;height: fit-content; padding: 20px;background-color:rgb(233, 183, 118);">
+            <h2>
+                a[i] = 5, 25, 13, 8, 45, 6, 11.
+                
+            </h2>
+            <button onclick="showMax()" style="height: 30px; width: 120px;">Show Max</button>
+            <button onclick="showMin()" style="height: 30px; width: 120px;">Show Min</button>
+            <button onclick="sortMinToMax()" style="height: 30px; width: 120px;">Sort Min to Max</button>
+            <button onclick="sortMaxToMin()" style="height: 30px; width: 120px;">Sort Max to Min</button>
+            <h4>Result:
+                <p id="result" style="width: 110px;height: 20px;padding: 5px;background-color:rgb(254, 254, 254);"></p>
+            </h4>
+            <button onclick="clearAnswer()" style="height: 30px; width: 120px;">Clear Answer</button>
+        </div>
+    </body>
+</html>

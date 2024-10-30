@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.cdnfonts.com/css/aquire" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <style>
+            body {
+                background-color:rgb(241, 212, 177);
+                margin: 0;
+                margin-top: 120px;
+                padding: 0;
+                height: 100%;
+                font-family: Arial, Helvetica, sans-serif;
+                background-image: url('https://img.freepik.com/premium-vector/orange-polygonal-crystal-background-low-poly-design-pattern_126712-1816.jpg?w=1060');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            footer {
+                margin: 0;
+                padding: 15px;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: rgb(0, 0, 0);
+                color: rgb(251, 160, 49);
+                font-weight: bolder;
+                font-size: 16px;
+                font-family: 'Aquire', sans-serif;
+                text-align: center;
+            }
+            .navButton{
+                background-color: rgb(0, 0, 0);
+                border: none;
+                margin: 0;
+                padding: 12px;
+                width: fit-content;
+                transition: 0.3s;
+                color: rgb(251, 160, 49);
+                font-weight: bolder;
+                font-size: 16px;
+                font-family: 'Aquire', sans-serif;
+                text-align: center;
+            }
+            .navButton:hover{
+                background-color: rgb(251, 160, 49);
+                margin: 0;
+                padding: 12px;
+                width: fit-content;
+                color: rgb(0, 0, 0);
+                font-weight: bolder;
+                font-family: 'Aquire', sans-serif;
+                text-align: center;
+            }
+            .navbar-toggler-icon{
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='orange' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+            }
+        </style> 
+    </header>
+    <body>
+        <nav class="navbar navbar-expand-md fixed-top" style="background-color: black;">
+            <div class="container-xxl">
+                <a href="#intro" class="navbar-brand">
+                    <span class="fw-bold" style="color: rgb(251, 160, 49); font-family: 'Aquire', sans-serif;font-size: 24px;">
+                        DK Enterprise
+                    </span>
+                </a>
+                
+                <!-- navbar drop down button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation" >
+                    <span class="navbar-toggler-icon" ></span>
+                </button>
+
+                <!-- main navbar -->
+                <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+                    <ul class="navbar-nav">
+                        <!-- large screen -->
+                        <li class="nav-item">
+                            <a class="btn navButton d-none d-md-block" href="#home">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn navButton d-none d-md-block" href="#products">PRODUCTS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn navButton d-none d-md-block" href="#about">ABOUT US</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn navButton d-none d-md-block" href="#login">LOGIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn navButton d-none d-md-block" href="#register">REGISTER</a>
+                        </li>
+                        <!-- small screen navbar -->
+                        <li class="nav-item">
+                            <a class="nav-link d-md-none navButton" style="width: 100%;" href="#home">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-md-none navButton" style="width: 100%;" href="#products">PRODUCTS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-md-none navButton" style="width: 100%;" href="#about">ABOUT US</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-md-none navButton" style="width: 100%;" href="#login">LOGIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-md-none navButton" style="width: 100%;" href="#register">REGISTER</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section id="content">
+            <div class="container my-5">
+                <h2>Mock Content</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sed quae, aliquid consectetur sunt magnam quos quidem quis aliquam molestiae itaque dolorum? Iusto dolore pariatur saepe porro. Mollitia, doloribus vitae!</p>
+            </div>
+            <div class="container my-5">
+                <h2>Mock Content</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sed quae, aliquid consectetur sunt magnam quos quidem quis aliquam molestiae itaque dolorum? Iusto dolore pariatur saepe porro. Mollitia, doloribus vitae!</p>            
+            </div>
+                <div class="container my-5">
+                <h2>Mock Content</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sed quae, aliquid consectetur sunt magnam quos quidem quis aliquam molestiae itaque dolorum? Iusto dolore pariatur saepe porro. Mollitia, doloribus vitae!</p>
+            </div>
+        </section>
+        
+    </body>
+    <footer>
+        <section id="footer">
+            <p>Powered by Damwon Kia</p>
+        </section>
+        
+    </footer>
+</html>
