@@ -25,7 +25,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: rgb(0, 0, 0);
+            background-color: #211f1d;
             color: rgb(251, 160, 49);
             font-weight: bolder;
             font-size: 16px;
@@ -33,7 +33,7 @@
             text-align: center;
         }
         .navButton {
-            background-color: rgb(0, 0, 0);
+            background-color: #211f1d;
             border: none;
             padding: 12px;
             color: rgb(251, 160, 49);
@@ -58,7 +58,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md fixed-top" style="background-color: black;">
+<nav class="navbar navbar-expand-md fixed-top" style="background-color: #211f1d;">
         <div class="container-xxl">
             <a href="#intro" class="navbar-brand">
                 <span class="fw-bold" style="color: rgb(251, 160, 49); font-family: 'Aquire', sans-serif; font-size: 24px;">
@@ -72,26 +72,30 @@
             <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="index.php?page=home">HOME</a>
+                        <a class="btn navButton d-none d-md-block" href="?page=home">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link navButton dropdown-toggle btn" href="?page=products" id="navbarDropdown" role="button" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item navButton" href="?page=basins">BASINS</a></li>
+                            <li><a class="dropdown-item navButton" href="?page=tubs">TUBS</a></li>
+                            <li><a class="dropdown-item navButton" href="?page=accessories">ACCESSORIES</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="index.php?page=products">PRODUCTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="index.php?page=about">ABOUT US</a>
+                        <a class="btn navButton d-none d-md-block" href="?page=about">ABOUT US</a>
                     </li>
                     <?php if (isset($_SESSION['username'])): ?>
-                        <li class="nav-item">
-                            <a class="btn navButton d-none d-md-block" href="logout.php">LOGOUT</a>
-                        </li>
+                        <li class="nav-item"><a class="btn navButton d-none d-md-block" href="logout.php">LOGOUT</a></li>
                     <?php else: ?>
-                        <li class="nav-item">
-                            <a class="btn navButton d-none d-md-block" href="login.php">LOGIN</a>
-                        </li>
+                        <li class="nav-item"><a class="btn navButton d-none d-md-block" href="login.php">LOGIN</a></li>
                     <?php endif; ?>
                     <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="index.php?page=register">REGISTER</a>
+                        <a class="btn navButton d-none d-md-block" href="?page=dashboard">USER</a>
                     </li>
+                    
                 </ul>
             </div>
         </div>

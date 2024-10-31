@@ -12,6 +12,7 @@
             background-color: rgb(255,255,255);
             margin: 0;
             margin-top: 60px;
+            margin-bottom: 60px;
             padding: 0;
             height: 100%;
             font-family: Arial, Helvetica, sans-serif;
@@ -59,17 +60,30 @@
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='orange' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
         }
-    </style>
-    <script>
-        function loadPHP(file) {
-            fetch(file)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('content').innerHTML = data;
-                })
-                .catch(error => console.error('Error:', error));
+        .dropdown-menu {
+            background-color: #211f1d;
+            border: none;
+            margin: 0;
+            padding: 12px;
+            width: fit-content;
+            transition: 0.3s;
+            color: rgb(251, 160, 49);
+            font-weight: bolder;
+            font-size: 16px;
+            font-family: 'Aquire', sans-serif;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: none;
+            position: absolute;
+            will-change: transform;
         }
-    </script>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            top: 100%;
+            left: 0;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-md fixed-top" style="background-color: #211f1d;">
@@ -86,13 +100,20 @@
             <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="?page=home" onclick="loadPHP('home.php')">HOME</a>
+                        <a class="btn navButton d-none d-md-block" href="?page=home">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link navButton dropdown-toggle btn" href="?page=products" id="navbarDropdown" role="button" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item navButton" href="?page=basins">BASINS</a></li>
+                            <li><a class="dropdown-item navButton" href="?page=tubs">TUBS</a></li>
+                            <li><a class="dropdown-item navButton" href="?page=accessories">ACCESSORIES</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="?page=products" onclick="loadPHP('products.php')">PRODUCTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="?page=about" onclick="loadPHP('about.php')">ABOUT US</a>
+                        <a class="btn navButton d-none d-md-block" href="?page=about">ABOUT US</a>
                     </li>
                     <?php if (isset($_SESSION['username'])): ?>
                         <li class="nav-item"><a class="btn navButton d-none d-md-block" href="logout.php">LOGOUT</a></li>
@@ -100,8 +121,9 @@
                         <li class="nav-item"><a class="btn navButton d-none d-md-block" href="login.php">LOGIN</a></li>
                     <?php endif; ?>
                     <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="?page=register" onclick="loadPHP('register.php')">REGISTER</a>
+                        <a class="btn navButton d-none d-md-block" href="?page=dashboard">USER</a>
                     </li>
+                    
                 </ul>
             </div>
         </div>
@@ -117,14 +139,39 @@
                 case 'products':
                     include 'products.php';
                     break;
+                case 'basins':
+                    include 'basins.php';
+                    break;
+                case 'tubs':
+                    include 'tubs.php';
+                    break;
+                case 'accessories':
+                    include 'accessories.php';
+                    break;
                 case 'about':
                     include 'about.php';
                     break;
                 case 'login':
                     include 'login.php';
                     break;
-                case 'register':
-                    include 'register.php';
+                case 'manage_users':
+                    include 'manage_users.php';
+                    break;
+                case 'manage_products':
+                    include 'manage_products.php';
+                    break;
+                case 'dashboard':
+                    switch($_SESSION['user_level']){
+                        case 1:
+                            include 'admin_dashboard.php';
+                            break;
+                        case 2:
+                            include 'saler_dashboard.php';
+                            break;
+                        default:
+                            include 'user_dashboard.php';
+                            break;
+                    }
                     break;
                 default:
                     echo '<p>Page not found</p>';

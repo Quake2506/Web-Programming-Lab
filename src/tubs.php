@@ -14,39 +14,39 @@
 <body>
     <div class="container-fluid d-flex flex-row flex-wrap justify-content-center align-items-center">
             <div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">
-                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2024/02/CL_02.27011-524x524.jpg"></img>
+                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2020/08/Hammock-Bathroom-01B.jpg"></img>
                 <p class="h5 fw-light">
-                    01. WASHBASINS
+                    01.
                 </p>
             </div>
             <div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">
-                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2024/02/CL_07.36.030.21_CL_03.40031-with-white-towel-e1720794370939-524x524.jpg"></img>
+                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2021/02/Wash-Me-concept-B2-1920x1920.jpg"></img>
                 <p class="h5">
-                    02. HANDBASINS
+                    02.
                 </p>
             </div>
             <div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">
-                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2020/08/CL_05.13010-grey-background-e1720794502609-524x524.jpg"></img>
+                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2021/02/First-bathroom-08A-smaller-e1614075212435-1920x1920.jpg"></img>
                 <p class="h5" style="font-family:">
-                    03. BATHTUBS
+                    03.
                 </p>
             </div>
             <div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">
-                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2024/02/CL_06.05099.82_top-bigger-524x524.jpg"></img>
+                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2020/12/Solium-perspective.jpg"></img>
                 <p class="h5" style="font-family:">
-                    04. TAPS, DRAINS & SIPHONS
+                    04.
                 </p>
             </div>
             <div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">
-                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2021/06/CL_08.12.045.21-grey-background-bigger-524x524.jpg"></img>
+                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2020/08/Solium-topview-darker-e1601899023638.jpg"></img>
                 <p class="h5" style="font-family:">
-                    05. MIRRORS
+                    05.
                 </p>
             </div>
             <div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">
-                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2020/08/Flat-and-Sjokker-Black-1-524x524.jpg"></img>
+                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2021/02/IB_05.40402-Ceiling-Wood-A3-1920x1920.jpg"></img>
                 <p class="h5" style="font-weight:200;">
-                    06. ACCESSORIES
+                    06.
                 </p>
             </div>
     </div>
