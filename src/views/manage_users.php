@@ -1,4 +1,5 @@
 <?php
+
 if (!isset($_SESSION['username']) || $_SESSION['user_level'] != '1') {
     header("Location: login.php");
     exit();
@@ -22,37 +23,37 @@ $message = ''; // Variable to store operation messages
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = $_POST['action'];
-    $product_name = $_POST['product_name'];
-    $product_description = $_POST['product_description'];
-    $price = $_POST['price'];
-
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $user_level = $_POST['user_level'];
+    
     if ($action == 'insert') {
-        $sql = "INSERT INTO products (product_name, product_description, price) VALUES ('$product_name', '$product_description', '$price')";
+        $sql = "INSERT INTO users (username, password, user_level) VALUES ('$username', '$password', '$user_level')";
         if ($conn->query($sql) === TRUE) {
-            $message = "New product added successfully.";
+            $message = "New user added successfully.";
         } else {
             $message = "Error: " . $sql . "<br>" . $conn->error;
         }
     } elseif ($action == 'update') {
         $id = $_POST['id'];
-        $sql = "UPDATE products SET product_name='$product_name', product_description='$product_description', price='$price' WHERE id='$id'";
+        $sql = "UPDATE users SET username='$username', password='$password', user_level='$user_level' WHERE id='$id'";
         if ($conn->query($sql) === TRUE) {
-            $message = "Product updated successfully.";
+            $message = "User updated successfully.";
         } else {
             $message = "Error updating record: " . $conn->error;
         }
     } elseif ($action == 'delete') {
         $id = $_POST['id'];
-        $sql = "DELETE FROM products WHERE id='$id'";
+        $sql = "DELETE FROM users WHERE id='$id'";
         if ($conn->query($sql) === TRUE) {
-            $message = "Product deleted successfully.";
+            $message = "User deleted successfully.";
         } else {
             $message = "Error deleting record: " . $conn->error;
         }
     }
 }
 
-$conn->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -60,18 +61,8 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Products</title>
+    <title>Manage Users</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin-top: 60px;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
         h1, h2 {
             color: #333;
         }
@@ -115,52 +106,60 @@ $conn->close();
     </style>
 </head>
 <body>
-    <h1>Manage Products</h1>
+    <h1>Manage Users</h1>
 
     <?php if ($message): ?>
         <div class="message"><?php echo $message; ?></div>
     <?php endif; ?>
 
-    <h2>Add Product</h2>
-    <form method="POST">
+    <h2>Add User</h2>
+    <form  method="POST">
         <input type="hidden" name="action" value="insert">
-        <label for="product_name">Product Name:</label>
-        <input type="text" id="product_name" name="product_name" required><br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
         
-        <label for="product_description">Product Description:</label>
-        <input type="text" id="product_description" name="product_description" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
         
-        <label for="price">Price:</label>
-        <input type="text" id="price" name="price" required><br>
+        <label for="user_level">User Level:</label>
+        <select id="user_level" name="user_level">
+            <option value="1">Admin</option>
+            <option value="2">Saler</option>
+            <option value="3">User</option>
+        </select><br>
         
-        <button type="submit">Add Product</button>
+        <button type="submit">Add User</button>
     </form>
 
-    <h2>Update Product</h2>
-    <form method="POST">
+    <h2>Update User</h2>
+    <form  method="POST">
         <input type="hidden" name="action" value="update">
-        <label for="id">Product ID:</label>
+        <label for="id">User ID:</label>
         <input type="text" id="id" name="id" required><br>
         
-        <label for="product_name">Product Name:</label>
-        <input type="text" id="product_name" name="product_name" required><br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
         
-        <label for="product_description">Product Description:</label>
-        <input type="text" id="product_description" name="product_description" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
         
-        <label for="price">Price:</label>
-        <input type="text" id="price" name="price" required><br>
+        <label for="user_level">User Level:</label>
+        <select id="user_level" name="user_level">
+            <option value="1">Admin</option>
+            <option value="2">Saler</option>
+            <option value="3">User</option>
+        </select><br>
         
-        <button type="submit">Update Product</button>
+        <button type="submit">Update User</button>
     </form>
 
-    <h2>Delete Product</h2>
-    <form method="POST">
+    <h2>Delete User</h2>
+    <form  method="POST">
         <input type="hidden" name="action" value="delete">
-        <label for="id">Product ID:</label>
+        <label for="id">User ID:</label>
         <input type="text" id="id" name="id" required><br>
         
-        <button type="submit">Delete Product</button>
+        <button type="submit">Delete User</button>
     </form>
 </body>
 </html>

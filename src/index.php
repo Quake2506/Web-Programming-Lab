@@ -1,4 +1,20 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "web_prog_lab";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname, 3307);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,46 +146,47 @@
     </nav>
     <div flex=1 id="content">
         <?php
+        include './views/search_form.php';
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
             switch ($page) {
                 case 'home':
-                    include 'home.php';
+                    include './views/home.php';
                     break;
                 case 'products':
-                    include 'products.php';
+                    include './views/products.php';
                     break;
                 case 'basins':
-                    include 'basins.php';
+                    include './views/basins.php';
                     break;
                 case 'tubs':
-                    include 'tubs.php';
+                    include './views/tubs.php';
                     break;
                 case 'accessories':
-                    include 'accessories.php';
+                    include './views/accessories.php';
                     break;
                 case 'about':
-                    include 'about.php';
+                    include './views/about.php';
                     break;
                 case 'login':
                     include 'login.php';
                     break;
                 case 'manage_users':
-                    include 'manage_users.php';
+                    include './views/manage_users.php';
                     break;
                 case 'manage_products':
-                    include 'manage_products.php';
+                    include './views/manage_products.php';
                     break;
                 case 'dashboard':
                     switch($_SESSION['user_level']){
                         case 1:
-                            include 'admin_dashboard.php';
+                            include './views/admin_dashboard.php';
                             break;
                         case 2:
-                            include 'saler_dashboard.php';
+                            include './views/saler_dashboard.php';
                             break;
                         default:
-                            include 'user_dashboard.php';
+                            include './views/user_dashboard.php';
                             break;
                     }
                     break;
@@ -177,7 +194,7 @@
                     echo '<p>Page not found</p>';
             }
         } else {
-            include 'home.php';
+            include './views/home.php';
         }
         ?>
     </div>
