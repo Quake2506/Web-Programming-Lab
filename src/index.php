@@ -25,7 +25,7 @@ if ($conn->connect_error) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: rgb(255,255,255);
+            background-color: #f5f5f5;
             margin-top: 60px;
             height: 100%;
             width: 100%;
@@ -99,6 +99,22 @@ if ($conn->connect_error) {
             left: 0;
             margin: 0;
         }
+        .productCard {
+            width: 20rem;
+            border:none; 
+            text-decoration: none;
+            color: black;
+            padding: 20px;
+            transition: 0.5s;
+            background-color: #f5f5f5;
+        }
+        .productCard:hover {
+            width: 20rem;
+            border:none; 
+            text-decoration: none;
+            color: black;
+            background-color: #d4d4d4;
+        }
     </style>
 </head>
 <body>
@@ -138,6 +154,9 @@ if ($conn->connect_error) {
                         </li>
                     <?php else: ?>
                         <li class="nav-item"><a class="btn navButton d-none d-md-block" href="?page=login">LOGIN</a></li>
+                        <li class="nav-item">
+                            <a class="btn navButton d-none d-md-block" href="?page=register">REGISTER</a>
+                        </li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -173,7 +192,10 @@ if ($conn->connect_error) {
                     include './views/find.php';
                     break;
                 case 'login':
-                    include 'login.php';
+                    include './views/login.php';
+                    break;
+                case 'register':
+                    include './views/register.php';
                     break;
                 case 'manage_users':
                     include './views/manage_users.php';

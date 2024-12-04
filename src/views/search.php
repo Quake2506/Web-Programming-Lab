@@ -33,10 +33,10 @@ $result = $stmt->get_result();
             
             $display_id = 1;
             while($row = $result->fetch_assoc()) {
-                echo'<div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">';
-                echo '<img class="card-img-top" src="'. $row['image_link'] .'"></img>';
+                echo'<a href="?page=product_info&id=' . $row['id'] . '" class="productCard card m-5 d-flex flex-column">';
+                echo '<img class="card-img-top pb-2" src="'. $row['image_link'] .'"></img>';
                 echo '<p class="h5 fw-light">'. $display_id .'. '. $row['product_name'] .'</p>';
-                echo '</div>';
+                echo '</a>';
                 $display_id = $display_id+1;
             }
             echo '</div>';

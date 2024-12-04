@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accessories</title>
+    <script>
+        <?php
+            // Write the SQL query
+            $sql = $conn->prepare( "SELECT id, product_name, product_description, price, image_link FROM products WHERE product_description = 'Products'");
+            $sql -> execute();
+            $sql -> store_result();
+            $sql -> bind_result($id, $product_name, $product_description, $price, $image_link);
+            while ($sql->fetch()) { 
+                $records[] = [ 
+                    'id' => $id, 
+                    'product_name' => $product_name, 
+                    'product_description' => $product_description, 
+                    'price' => $price, 
+                    'image_link' => $image_link, 
+                ]; 
+            }
+        ?>
+    </script>
 </head>
 
 <body>
@@ -11,42 +29,16 @@
         include './views/search_form.php';
     ?>
     <div class="container-fluid d-flex flex-row flex-wrap justify-content-center align-items-center">
-            <div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">
-                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2022/12/PitP-Bathroom-Furniture-Concept-p.6-breder-concept-tekeningen-3840x1990.jpg"></img>
-                <p class="h5 fw-light">
-                    01.
-                </p>
-            </div>
-            <div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">
-                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2022/12/CL_07.61.611.55-double-with-all-washbasins-E-breder-3840x1990.jpg"></img>
-                <p class="h5">
-                    02.
-                </p>
-            </div>
-            <div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">
-                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2022/12/PitP-Bathroom-Furniture-Compositions-basic-CL_07.61.607.55-Wash-Me-p.21-breder3-3840x1990.jpg"></img>
-                <p class="h5" style="font-family:">
-                    03.
-                </p>
-            </div>
-            <div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">
-                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2020/08/CL_06.53021-3.jpg"></img>
-                <p class="h5" style="font-family:">
-                    04.
-                </p>
-            </div>
-            <div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">
-                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2022/12/Hammock-best-sellers-2022-top-view-breder2-3840x1990.jpg"></img>
-                <p class="h5" style="font-family:">
-                    05.
-                </p>
-            </div>
-            <div class="card m-5 d-flex flex-column" style="width: 20rem; border:none;">
-                    <img class="card-img-top" src="https://clou.nl/wp-content/uploads/2022/12/Hammock-bathroom-13-B-breder-3840x1990.jpg"></img>
-                <p class="h5" style="font-weight:200;">
-                    06.
-                </p>
-            </div>
+                <?php
+                    $display_id = 1;
+                    foreach ($records as $records) {
+                        echo'<a href="?page=product_info&id=' . $records['id'] . '" class="productCard card m-5 d-flex flex-column">';
+                        echo '<img class="card-img-top pb-2" src="'. $records['image_link'] .'"></img>';
+                        echo '<p class="h5 fw-light">'. $display_id .'. '. $records['product_name'] .'</p>';
+                        echo '</a>';
+                        $display_id = $display_id+1;
+                    }
+                ?>
     </div>
 </body>
 </html>

@@ -14,11 +14,6 @@ $dbname = "web_prog_lab";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname, 3307);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 $message = ''; // Variable to store operation messages
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

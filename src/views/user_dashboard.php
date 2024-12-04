@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['username']) || $_SESSION['user_level'] != '1') {
+if (!isset($_SESSION['username']) || $_SESSION['user_level'] != '3') {
     header("Location: login.php");
     exit();
 }
