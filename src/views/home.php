@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
-        body {
-            margin-bottom:60px;
-        }
         .image-container {
             max-width: 100%;
             margin-bottom: 20px;
@@ -39,6 +36,9 @@
         <p class="text-box">
             Everyone is welcome at DK. We are open to everyone and everyone has equal opportunities and possibilities with us, regardless of sexual orientation, gender identity, expression or origin in any form. And that should be the case everywhere.
         </p>
+        <?php
+            include './views/search_form.php';
+        ?>
     </div>
 </body>
 </html>

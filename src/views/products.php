@@ -1,6 +1,6 @@
 <?php
 // Write the SQL query
-$sql = $conn->prepare( "SELECT id, product_name, product_description, price, image_link FROM products");
+$sql = $conn->prepare( "SELECT id, product_name, product_description, price, image_link FROM products WHERE product_description = 'Products'");
 $sql -> execute();
 $sql -> store_result();
 $sql -> bind_result($id, $product_name, $product_description, $price, $image_link);
@@ -19,15 +19,13 @@ while ($sql->fetch()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <style>
-        body {
-            margin-bottom:60px;
-        }
-    </style>
+    <title>Products</title>
 </head>
 
 <body>
+    <?php
+        include './views/search_form.php';
+    ?>
     <div class="container-fluid d-flex flex-row flex-wrap justify-content-center align-items-center">
                 <?php
                     $display_id = 1;

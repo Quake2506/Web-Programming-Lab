@@ -48,6 +48,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('Invalid username'); window.location.href = 'login.php';</script>";
     }
 }
-
-$conn->close();
 ?>

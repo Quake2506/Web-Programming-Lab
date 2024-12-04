@@ -10,18 +10,7 @@ if (!isset($_SESSION['username']) || $_SESSION['user_level'] != '1') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <style>
-        body {
-            background-color: rgb(255,255,255);
-            margin: 0;
-            margin-top: 60px;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-        }
+    <style> 
         .button {
             background-color: #211f1d;
             border: none;

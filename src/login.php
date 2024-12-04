@@ -58,49 +58,6 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-md fixed-top" style="background-color: #211f1d;">
-        <div class="container-xxl">
-            <a href="#intro" class="navbar-brand">
-                <span class="fw-bold" style="color: rgb(251, 160, 49); font-family: 'Aquire', sans-serif; font-size: 24px;">
-                    DK Enterprise
-                </span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
-                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="?page=home">HOME</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link navButton dropdown-toggle btn" href="?page=products" id="navbarDropdown" role="button" aria-expanded="false">
-                            Products
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item navButton" href="?page=basins">BASINS</a></li>
-                            <li><a class="dropdown-item navButton" href="?page=tubs">TUBS</a></li>
-                            <li><a class="dropdown-item navButton" href="?page=accessories">ACCESSORIES</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="?page=about">ABOUT US</a>
-                    </li>
-                    <?php if (isset($_SESSION['username'])): ?>
-                        <li class="nav-item"><a class="btn navButton d-none d-md-block" href="logout.php">LOGOUT</a></li>
-                    <?php else: ?>
-                        <li class="nav-item"><a class="btn navButton d-none d-md-block" href="login.php">LOGIN</a></li>
-                    <?php endif; ?>
-                    <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="?page=dashboard">USER</a>
-                    </li>
-                    
-                </ul>
-            </div>
-        </div>
-    </nav>
-
     <div class="container form-container">
         <h2>Login Form</h2>
         <form action="login_processing.php" method="POST">

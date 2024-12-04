@@ -26,20 +26,17 @@ if ($conn->connect_error) {
     <style>
         body {
             background-color: rgb(255,255,255);
-            margin: 0;
             margin-top: 60px;
-            margin-bottom: 60px;
-            padding: 0;
             height: 100%;
+            width: 100%;
             font-family: Arial, Helvetica, sans-serif;
             display: flex;
             min-height: 100vh;
             flex-direction: column;
         }
         footer {
-            margin: 0;
+            margin-top: 50px;
             padding: 15px;
-            position: fixed;
             bottom: 0;
             width: 100%;
             background-color: #211f1d;
@@ -75,6 +72,9 @@ if ($conn->connect_error) {
         }
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='orange' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        .content { 
+            flex: 1; 
         }
         .dropdown-menu {
             background-color: #211f1d;
@@ -129,24 +129,22 @@ if ($conn->connect_error) {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="?page=about">ABOUT US</a>
+                        <a class="btn navButton d-none d-md-block" href="?page=find">FIND OUR STORE</a>
                     </li>
                     <?php if (isset($_SESSION['username'])): ?>
                         <li class="nav-item"><a class="btn navButton d-none d-md-block" href="logout.php">LOGOUT</a></li>
+                        <li class="nav-item">
+                            <a class="btn navButton d-none d-md-block" href="?page=dashboard">USER</a>
+                        </li>
                     <?php else: ?>
-                        <li class="nav-item"><a class="btn navButton d-none d-md-block" href="login.php">LOGIN</a></li>
+                        <li class="nav-item"><a class="btn navButton d-none d-md-block" href="?page=login">LOGIN</a></li>
                     <?php endif; ?>
-                    <li class="nav-item">
-                        <a class="btn navButton d-none d-md-block" href="?page=dashboard">USER</a>
-                    </li>
-                    
                 </ul>
             </div>
         </div>
     </nav>
-    <div flex=1 id="content">
+    <div class="content" id="content">
         <?php
-        include './views/search_form.php';
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
             switch ($page) {
@@ -165,8 +163,14 @@ if ($conn->connect_error) {
                 case 'accessories':
                     include './views/accessories.php';
                     break;
-                case 'about':
-                    include './views/about.php';
+                case 'search':
+                    include './views/search.php';
+                    break;
+                case 'product_info':
+                    include './views/product_info.php';
+                    break;
+                case 'find':
+                    include './views/find.php';
                     break;
                 case 'login':
                     include 'login.php';
